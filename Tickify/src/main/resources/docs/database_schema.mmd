@@ -1,0 +1,53 @@
+erDiagram
+    Client {
+        Long id
+        String firstName
+        String lastName
+        String password
+        String email
+        String phone
+        Reservation[] reservations
+    }
+
+    Client ||--o{ Reservation: "makes many"
+
+    Reservation {
+        Long id
+        PurchaseType purchaseType
+        Ticket[] tickets
+    }
+    Reservation ||--o{ Ticket: "may buy many at once"
+
+    Ticket {
+        Long id
+        String content
+        Long seatId
+    }
+    Ticket ||--|| Seat: references
+
+    Event {
+        Long id
+        LocalDateTime date
+        HallBlueprint rentedHall
+    }
+    Event ||--|| HallBlueprint: "holds a copy"
+
+    HallBlueprint {
+        Long id
+        String name
+        Location location
+        Seat[] seats
+    }
+    HallBlueprint ||--o{ Seat: "has many"
+
+    Seat {
+        Long id
+        String seatNumber
+        FrontendPostion frontendPosition
+    %% {x: 0, y: 0, rotation : 0-360} needs to be serialized into a String, also should probably be held in redis while creating the blueprint thru the websocket connection
+        SeatType seatType
+        JavaMoney price
+        Boolean taken
+        Long hallId
+    }
+
