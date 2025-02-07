@@ -1,1 +1,0 @@
-# Tickify-backend
