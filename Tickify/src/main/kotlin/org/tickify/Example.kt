@@ -49,7 +49,7 @@ fun main() { // W kotlinei mozna wszedzie miec maina
 
     val nullableNumber : Int? = null
     val number = nullableNumber ?: 0 // Operator elvisa, jesli nullableNumber jest nullem to przypisz 0
-
+    //test CICD
 }
 
 
