@@ -1,1 +1,22 @@
+# IDE files
 .idea/
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Logs and temporary files
+*.log
+.mtj.tmp/
+hs_err_pid*
+replay_pid*
+
+# IDE and tools
+*.ctxt
+.kotlin/
