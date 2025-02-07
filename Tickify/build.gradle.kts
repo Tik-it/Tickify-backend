@@ -4,6 +4,8 @@ plugins {
     id("org.springframework.boot") version "3.4.2"
     id("io.spring.dependency-management") version "1.1.7"
     kotlin("plugin.jpa") version "1.9.25"
+    kotlin("plugin.lombok") version "2.1.10"
+    id("io.freefair.lombok") version "8.10"
 }
 
 group = "org"
@@ -30,6 +32,7 @@ repositories {
 }
 
 dependencies {
+    implementation("org.javamoney:moneta:1.4.4")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-batch")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -58,6 +61,7 @@ dependencies {
     testImplementation("org.springframework.kafka:spring-kafka-test")
     testImplementation("org.springframework.security:spring-security-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
 }
 
 kotlin {
@@ -65,6 +69,8 @@ kotlin {
         freeCompilerArgs.addAll("-Xjsr305=strict")
     }
 }
+
+
 
 allOpen {
     annotation("jakarta.persistence.Entity")
